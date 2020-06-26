@@ -1,12 +1,19 @@
+const propTamanhoTelaDeGameOver = 0.7;
+const corDeFundoTelaDeGameOver = 'rgba(0, 0, 0, 0.7)';
+
 let imagemCenario;
 let imagemPersonagem;
 let imagemInimigo;
+let imagemGameOver;
 
-let cenario;
 let somDoJogo;
 let somDoPulo;
+
+let cenario;
 let personagem;
 let inimigo;
+let gameOver;
+
 
 const matrizInimigo = [
   [0, 0],
@@ -64,6 +71,7 @@ const matrizPersonagem = [
 
     
 function preload(){
+  imagemGameOver = loadImage('imagens/assets/game-over.png');
   imagemCenario = loadImage('imagens/cenario/floresta.png');
   imagemPersonagem = loadImage('imagens/personagem/correndo.png');
   imagemInimigo = loadImage('imagens/inimigos/gotinha.png');
@@ -73,6 +81,7 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  gameOver = new GameOver(imagemGameOver, propTamanhoTelaDeGameOver, corDeFundoTelaDeGameOver);
   cenario = new Cenario (imagemCenario, 1);
   personagem = new Personagem (matrizPersonagem, imagemPersonagem, 0, 110, 135, 220, 270);
   inimigo = new Inimigo(matrizInimigo, imagemInimigo, width -52, 52, 52, 104, 104);
@@ -100,6 +109,8 @@ function draw() {
   
   if(personagem.estaColidindo(inimigo)){
      console.log ('Eita que bati');
+    gameOver.exibe();
+    somDoJogo.setVolume(0, 3);
     noLoop()
      }
   
