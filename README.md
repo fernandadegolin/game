@@ -1,4 +1,4 @@
 # 👾 Game
 
 ### Semana GameAlura
-Desenvolvimento de um game com JavaScript
+Jogo desenvolvido com linguagem JS
