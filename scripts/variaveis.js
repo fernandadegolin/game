@@ -11,6 +11,8 @@ let imagemGameOver;
 let somDoJogo;
 let somDoPulo;
 
+let jogo;
+
 let cenario;
 let personagem;
 let inimigo;
