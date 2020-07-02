@@ -5,6 +5,8 @@ class Jogo {
 
   setup() {
     gameOver = new GameOver(imagemGameOver, TelaDeGameOver, corTelaDeGameOver);
+    
+    vida = new Vida(3,3);
 
     cenario = new Cenario(imagemCenario, 1);
 
@@ -33,6 +35,8 @@ class Jogo {
   draw() {
     cenario.exibe();
     cenario.move();
+    
+    vida.draw();
 
     personagem.exibe();
     personagem.aplicaGravidade();
@@ -56,10 +60,18 @@ class Jogo {
     }
 
     if (personagem.estaColidindo(inimigo)) {
-      console.log('Eita que bati');
-      gameOver.exibe();
-      somDoJogo.setVolume(0, 3);
-      noLoop()
+      
+      
+      vida.perdeVida();
+      personagem.tornarInvencivel();
+        if(vida.vidas === -1){
+           console.log('Eita que bati');
+          gameOver.exibe();
+          somDoJogo.setVolume(0, 3);
+          noLoop()
+           }
+      
+      
     }
   }
 }

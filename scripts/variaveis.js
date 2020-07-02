@@ -8,6 +8,7 @@ let imagemInimigoGrande;
 let imagemInimigoVoador;
 let imagemGameOver;
 let imagemTelaInicial;
+let imagemVida;
 let fonteTelaInicial;
 
 let somDoJogo;
@@ -26,6 +27,7 @@ let inimigoGrande;
 let inimigoVoador;
 let gameOver;
 let pontuacao;
+let vida;
 
 
 
