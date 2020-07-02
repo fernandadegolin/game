@@ -40,17 +40,17 @@ class Jogo {
     pontuacao.exibe();
     pontuacao.adicionarPonto();
 
-    const inimigo = inimigos[inimigoAtual];
+    const inimigo = inimigos[this.inimigoAtual];
     const inimigoVisivel = inimigo.x < -inimigo.largura;
 
     inimigo.exibe();
     inimigo.move();
 
     if (inimigoVisivel) {
-      inimigoAtual++;
+      this.inimigoAtual++;
 
-      if (inimigoAtual > 2) {
-        inimigoAtual = 0;
+      if (this.inimigoAtual > 2) {
+        this.inimigoAtual = 0;
       }
       inimigo.velocidade = parseInt(random(10, 20));
     }

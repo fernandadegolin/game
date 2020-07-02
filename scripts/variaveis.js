@@ -7,11 +7,17 @@ let imagemInimigo;
 let imagemInimigoGrande;
 let imagemInimigoVoador;
 let imagemGameOver;
+let imagemTelaInicial;
+let fonteTelaInicial;
 
 let somDoJogo;
 let somDoPulo;
 
 let jogo;
+let cenaAtual = 'telaInicial';
+let cenas;
+let telaInicial;
+let botaoGerenciador;
 
 let cenario;
 let personagem;
@@ -21,7 +27,7 @@ let inimigoVoador;
 let gameOver;
 let pontuacao;
 
-let inimigoAtual = 0;
+
 
 
 const matrizInimigo = [
