@@ -1,27 +1,28 @@
 class TelaInicial {
-  constructor(){
+  constructor() {}
+
+  draw() {
+    this._imagemDeFundo();
+    this._texto();
+    this._botao();
   }
 
-  draw(){
-     this._imagemDeFundo();
-      this._texto();
+  _imagemDeFundo() {
+    image(imagemTelaInicial, 0, 0, width, height);
   }
-  
-  _imagemDeFundo(){
-  image(imagemTelaInicial, 0, 0, width, height);
-  }
-  
-  _texto(){
-    textFont (fonteTelaInicial);
+
+  _texto() {
+    textFont(fonteTelaInicial);
     textSize(40);
     textAlign(CENTER);
     text('As Aventuras da', width / 2, height / 3);
     textSize(70);
-    text('Floresta Encantada', width / 2, height /5 * 3);
+    text('Floresta Encantada', width / 2, height / 5 * 3);
   }
-  
-  _botao(){
-  botaoGerenciador.draw();
-  
+
+  _botao() {
+    botaoGerenciador.y = height/ 7 * 5;
+    botaoGerenciador.draw();
+
   }
 }

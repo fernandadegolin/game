@@ -59,7 +59,7 @@ class Jogo {
       console.log('Eita que bati');
       gameOver.exibe();
       somDoJogo.setVolume(0, 3);
-      //noLoop()
+      noLoop()
     }
   }
 }
