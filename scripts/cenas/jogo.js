@@ -1,12 +1,13 @@
 class Jogo {
   constructor() {
-    this.inimigoAtual = 0;
+    this.indice = 0;
+    this.mapa = fita.mapa;
   }
 
   setup() {
     gameOver = new GameOver(imagemGameOver, TelaDeGameOver, corTelaDeGameOver);
     
-    vida = new Vida(3,3);
+    vida = new Vida(fita.configuracoes.vidaMaxima,fita.configuracoes.vidaInicial);
 
     cenario = new Cenario(imagemCenario, 1);
 
@@ -14,11 +15,11 @@ class Jogo {
 
     personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 30, 110, 135, 220, 270);
 
-    const inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 4, 100);
+    const inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 4);
 
-    const inimigoGrande = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10, 200);
+    const inimigoGrande = new Inimigo(matrizInimigoGrande, imagemInimigoGrande, width, 0, 200, 200, 400, 400, 10);
 
-    const inimigoVoador = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 200, 100, 75, 200, 150, 7, 50);
+    const inimigoVoador = new Inimigo(matrizInimigoVoador, imagemInimigoVoador, width - 52, 200, 100, 75, 200, 150, 7);
 
     inimigos.push(inimigo);
     inimigos.push(inimigoGrande);
@@ -44,19 +45,22 @@ class Jogo {
     pontuacao.exibe();
     pontuacao.adicionarPonto();
 
-    const inimigo = inimigos[this.inimigoAtual];
+    const linhaAtual = this.mapa[this.indice]
+    const inimigo = inimigos[linhaAtual.inimigo];
     const inimigoVisivel = inimigo.x < -inimigo.largura;
+    
+    inimigo.velocidade = linhaAtual.velocidade;
 
     inimigo.exibe();
     inimigo.move();
 
     if (inimigoVisivel) {
-      this.inimigoAtual++;
+      this.indice++;
+      inimigo.aparece();
 
-      if (this.inimigoAtual > 2) {
-        this.inimigoAtual = 0;
+      if (this.indice > this.mapa.length - 1) {
+        this.indice = 0;
       }
-      inimigo.velocidade = parseInt(random(10, 20));
     }
 
     if (personagem.estaColidindo(inimigo)) {

@@ -28,7 +28,7 @@ let inimigoVoador;
 let gameOver;
 let pontuacao;
 let vida;
-
+let fita;
 
 
 
