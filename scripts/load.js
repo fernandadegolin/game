@@ -1,8 +1,7 @@
 function preload(){
   
   imagemTelaInicial = loadImage('imagens/cenario/telaInicial.png');
-  
-  
+
   fonteTelaInicial = loadFont ('imagens/cenario/fonteTelaInicial.otf');
   
   
