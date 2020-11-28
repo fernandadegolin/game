@@ -32,8 +32,6 @@ let pontuacao;
 let vida;
 let fita;
 
-
-
 const matrizInimigo = [
   [0, 0],
   [104, 0],
