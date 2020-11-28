@@ -16,6 +16,7 @@ let somDoJogo;
 let somDoPulo;
 
 let jogo;
+
 let cenaAtual = 'telaInicial';
 let cenas;
 let telaInicial;
