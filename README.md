@@ -1,4 +1,4 @@
 # 👾 Game
 
-### Semana GameAlura
+### Semana GameAlura 
 Jogo desenvolvido com linguagem JS
